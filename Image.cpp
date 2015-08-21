@@ -30,3 +30,31 @@ Image::Image(const char* filename) {
 
 	pInFile->close();
 }
+
+// Destructor
+Image::~Image() {
+	delete pInFile;
+	delete pOutFile;
+
+	for (int i = 0; i < HEIGHT; i++) {
+		delete[] imageData[i];
+		delete[] filteredData[i];
+	}
+
+	delete[] imageData;
+	delete[] filteredData;
+}
+
+void Image::writeG(const char* filename) {
+	createGaussianFilter();
+	pOutFile = new ofstream;
+	pOutFile->open(filename, ios::out | ios::trunc | ios::binary);
+	pOutFile->write(reinterpret_cast<char*>(c_vHeaderData), 1078);
+
+	for (int i = 0; i < HEIGHT; i++) {
+		pOutFile->write(reinterpret_cast<char*>(filteredData[i]), WIDTH);
+	}
+
+	pOutFile->close();
+}
+
