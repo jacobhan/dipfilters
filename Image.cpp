@@ -58,3 +58,19 @@ void Image::writeG(const char* filename) {
 	pOutFile->close();
 }
 
+void Image::writeM(const char* filename) {
+	createMedianFilter();
+	pOutFile = new ofstream;
+	pOutFile->open(filename, ios::out | ios::trunc | ios::binary);
+	pOutFile->write(reinterpret_cast<char*>(c_vHeaderData), 1078);
+
+	for (int i = 0; i < HEIGHT; i++) {
+		pOutFile->write(reinterpret_cast<char*>(filteredData[i]), WIDTH);
+	}
+
+	pOutFile->close();
+}
+
+
+
+
