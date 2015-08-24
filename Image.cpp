@@ -81,4 +81,26 @@ void findAverage(double imageData[][]) {
     	return (total / (HEIGHT * WIDTH));
 }
 
+void Image::createGaussianFilter() {
+    	// copy input image into new image
+	for (int i = 0; i < HEIGHT; i++) {
+        strncpy(reinterpret_cast<char*>(filteredData[i]), reinterpret_cast<char*> imageData[i]));
+    }
+
+		double sigma = 1.0;
+		double mean = findAverage(imageData);
+		double sum = 0.0;
+		for (int x = 0; x < HEIGHT; x++)
+			for (int y = 0; y < WIDTH; y++) {
+				filteredData[x][y] = exp(-0.5 * (pow( imageData[x] - mean)/sigma, 2.0)
+					+ pow( imageData[y] - mean)/sigma, 2.0) / (2 * M_PI * sigma * sigma);
+				sum += filteredData[x][y];
+			}
+		for (int x = 0; x < HEIGHT; x++)
+			for (int y = 0; y < WIDTH; y++)
+				filteredData[x][y] /= sum;
+}
+
+
+
 
