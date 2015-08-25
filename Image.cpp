@@ -101,6 +101,15 @@ void Image::createGaussianFilter() {
 				filteredData[x][y] /= sum;
 }
 
-
+void insertionSort(int window[]) {
+    int temp, i , j;
+    for(i = 0; i < 9; i++) {
+        temp = window[i];
+        for(j = i - 1; j >= 0 && temp < window[j]; j--) {
+            window[j + 1] = window[j];
+        }
+        window[j + 1] = temp;
+    }
+}
 
 
