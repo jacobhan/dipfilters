@@ -112,4 +112,28 @@ void insertionSort(int window[]) {
     }
 }
 
+void Image::createMedianFilter() {
+	// copy input image into new image
+	for (int i = 0; i < HEIGHT; i++) {
+        strcpy(reinterpret_cast<char*>(filteredData[i]), reinterpret_cast<char*> imageData[i]));
+    }
+
+    filteredData[][] = imageData[][];
+    int window[9];
+
+    for (int y = 1; y < HEIGHT - 1; y++)
+    	for (int x = 1; y < WIDTH - 1; x++)
+    		window[0] = imageData[y - 1, x - 1];
+    		window[1] = imageData[y][x - 1];
+    		window[2] = imageData[y + 1][x - 1];
+    		window[3] = imageData[y - 1][x];
+    		window[4] = imageData[y][x];
+    		window[5] = imageData[y + 1][x];
+    		window[6] = imageData[y - 1][x + 1];
+    		window[7] = imageData[y][x + 1];
+    		window[8] = imageData[y + 1][x + 1];
+    		insertionSort(window);
+    		filteredData[y][x] = window[4];
+}
+
 
