@@ -20,3 +20,4 @@ class Image {
 		unchar** imageData;
 		unchar** filteredData;
 };
+
