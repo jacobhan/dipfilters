@@ -13,3 +13,13 @@ int main() {
 			cout << filteredData[i][j] << "/t";
 		cout << end1;
 }
+
+// Median Filter
+int main() {
+	Image img("test.bmp");
+	img.writeM("output.bmp");
+	for (int i = 0; i < HEIGHT; i++)
+		for (int j = 0; j < WIDTH; j++)
+			cout << filteredData[i][j] << "/t";
+		cout << end1;
+}
