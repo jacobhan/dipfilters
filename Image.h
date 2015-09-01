@@ -3,7 +3,7 @@
 using namespace std;
 typedef unsigned char unchar;
 
-// Might just create two completely separate files for both Gaussian and Median filters
+// Might just create two completely separate files for both Gaussian and Median filters 
 
 class Image {
 	public:
