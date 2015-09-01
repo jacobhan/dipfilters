@@ -9,7 +9,7 @@
 using namespace std;
 typedef unsigned char unchar;
 
-// Constructor 
+// Constructor
 Image::Image(const char* filename) {
  imageData = new unchar*[HEIGHT];
 	filteredData = new unchar*[HEIGHT];
