@@ -9,7 +9,6 @@
 using namespace std;
 typedef unsigned char unchar;
 
-// Constructor
 Image::Image(const char* filename) {
  imageData = new unchar*[HEIGHT];
 	filteredData = new unchar*[HEIGHT];
@@ -31,7 +30,6 @@ Image::Image(const char* filename) {
 	pInFile->close();
 }
 
-// Destructor
 Image::~Image() {
 	delete pInFile;
 	delete pOutFile;
@@ -82,7 +80,6 @@ void findAverage(double imageData[][]) {
 }
 
 void Image::createGaussianFilter() {
-    	// copy input image into new image
 	for (int i = 0; i < HEIGHT; i++) {
         strncpy(reinterpret_cast<char*>(filteredData[i]), reinterpret_cast<char*> imageData[i]));
     }
@@ -113,7 +110,6 @@ void insertionSort(int window[]) {
 }
 
 void Image::createMedianFilter() {
-	// copy input image into new image
 	for (int i = 0; i < HEIGHT; i++) {
         strcpy(reinterpret_cast<char*>(filteredData[i]), reinterpret_cast<char*> imageData[i]));
     }
